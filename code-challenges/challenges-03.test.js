@@ -61,13 +61,19 @@ HINT: Beware... JS default is "Lexical" ordering.
 
 const sortNumbers = (arr) => {
   // Solution code here...
-  arr.sort((a,b) => a-b);
+  arr.sort((a,b) => {
+    
+    return arr.sort((a, b) => a-b);
+
+  });
+
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
-Write a function named sortBackwards that takes in an array of numbers and returns the same array, with the numbers sorted, largest to smallest.
+Write a function named sortBackwards that takes in an array of numbers and returns the same array, with4
+ the numbers sorted, largest to smallest.
 
 HINT: Do it with a custom sort callback, not with using `.reverse()`. ;) 
 ------------------------------------------------------------------------------------------------ */
@@ -75,13 +81,12 @@ HINT: Do it with a custom sort callback, not with using `.reverse()`. ;)
 const sortBackwards = (arr) => {
   // Solution code here...
   arr.sort((a,b) => {
-    if (a < b){
-      return -1;
-    }
-     else if (a > b) return 1;
-     else return 0;
- });
-   return arr;
+   
+    
+    return arr.sort((a, b) => b-a);
+    
+  });
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -96,14 +101,8 @@ For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 
 const alphabetize = (arr) => {
   // Solution code here...
-  arr.sort((a,b) => {
-    if (a < b){
-      return 1;
-    }
-     else if (a > b) return -1;
-     else return 0;
- });
-   return arr;
+  return arr.sort();
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -164,7 +163,8 @@ const sortByLength = (arr) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
 
-Write a function named sortNumbersByLength that takes in an array of numbers and sorts those numbers by their length.
+Write a function named sortNumbersByLength that takes in an array of numbers and sorts those numbers
+ by their length.
 
 For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 ------------------------------------------------------------------------------------------------ */
@@ -200,8 +200,7 @@ const people = [
 ];
 
 const sortPeople = (arr) => {
-  // Solution code here...
-  const sortPeople = (arr) => {
+
     // Solution code here...
     arr.sort((a,b) => {
       if (a.lastName < b.lastName){
@@ -225,14 +224,15 @@ If two people have the same full name, the younger one should come first. Do not
 
 const sortPeopleBetter = (arr) => {
   // Solution code here...
-  arr.sort((a,b) => {
-    if (a.lastName < b.lastName){
-      return -1;
+  arr.sort((a, b) => {
+    if(a.firstName === b.firstName && a.lastName === b.lastName) {
+      return a.age-b.age;
+    } else if(a.lastName === b.lastName) {
+      return (b.firstName < a.firstName ? 1 : -1);
+    } else {
+      return (b.lastName < a.lastName ? 1:-1);
     }
-     else if (a.lastName > b.toString().lastName) return 1;
-     else return 0;
- });
-   return arr;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -350,7 +350,7 @@ xdescribe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should sort items by their price', () => {
     expect(sortByPrice([
       {name: 'Sweatshirt', price: 45},
@@ -366,7 +366,7 @@ xdescribe('Testing challenge 8', () => {
   });
 });
 
-xdescribe('Testing challenge 9', () => {
+describe('Testing challenge 9', () => {
   test('It should sort numbers by their length', () => {
     expect(sortNumbersByLength([10, 2.8, 1, -47.75])).toStrictEqual([1, 10, 2.8, -47.75]);
     expect(sortNumbersByLength([100, 2.82, 1, -47.75])).toStrictEqual([1, 100, 2.82, -47.75]);
@@ -374,7 +374,7 @@ xdescribe('Testing challenge 9', () => {
   });
 });
 
-xdescribe('Testing challenge 10', () => {
+describe('Testing challenge 10', () => {
   test('It should sort people by their last names', () => {
     expect(sortPeople(people)).toStrictEqual([
       new Person('Casey', 'Codefellow', 38),
@@ -386,7 +386,7 @@ xdescribe('Testing challenge 10', () => {
   });
 });
 
-xdescribe('Testing challenge 11', () => {
+describe('Testing challenge 11', () => {
   test('It should sort people with more strict ordering', () => {
     const family = [
       new Person('Casey', 'Codefellows', 55),
