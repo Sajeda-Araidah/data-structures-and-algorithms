@@ -14,9 +14,9 @@ const addOne = (arr) => {
   // Solution code here...
   let nawArray=[];
   arr.forEach(element => {
-    nawArrayy.push(element+1);
+    nawArray.push(element+1);
   });
-  return nawArrayy;
+  return nawArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -31,7 +31,7 @@ const addExclamation = (arr) => {
   // Solution code here...
   let newArray2 =[];
   arr.forEach(element => {
-    newArray2.push(elemant + '!') ;
+    newArray2.push(element + '!') ;
   });
  return  newArray2;
 };
@@ -39,7 +39,8 @@ const addExclamation = (arr) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
-Write a function named `allUpperCase` that takes an array of strings, and returns a new array of the strings converted to upper case.
+Write a function named `allUpperCase` that takes an array of strings, and returns a new array of the strings
+ converted to upper case.
 
 Use `forEach` to loop over the input array. The modified strings should each be added into a local array. Return that local array.
 ------------------------------------------------------------------------------------------------ */
@@ -48,7 +49,7 @@ const allUpperCase = (arr) => {
   // Solution code here...
   let newArray3 =[];
   arr.forEach(element =>{
-    newArray3.push(elemant.toUpperCase());
+    newArray3.push(element.toUpperCase());
   });
    return newArray3 ;
 };
@@ -56,7 +57,8 @@ const allUpperCase = (arr) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
-Write a function named `greeting` that takes in a single string and returns the string in all uppercase letters, and followed by an "!".
+Write a function named `greeting` that takes in a single string and returns the string in all uppercase letters, 
+and followed by an "!".
 
 Then, write a function named `speaker` that takes in an array of strings and a callback function. 
 
@@ -83,7 +85,8 @@ const speaker = (words, callback) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
-Write a function named addValues that takes in an array and a value and pushes the value into the array. This function does not need a return statement.
+Write a function named addValues that takes in an array and a value and pushes the value into the array.
+ This function does not need a return statement.
 
 Then, write a function named addNumbers that takes in four arguments:
   - A number to be added to an array
