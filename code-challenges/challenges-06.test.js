@@ -69,8 +69,7 @@ const sortByChildren = (charArray) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
-Write a function named getCourseKeys that takes in the courseInfo object and returns an array
- containing the keys for the courseInfo object.
+Write a function named getCourseKeys that takes in the courseInfo object and returns an array containing the keys for the courseInfo object.
 
 For example: (['name', 'duration', 'topics', 'finalExam']).
 ------------------------------------------------------------------------------------------------ */
@@ -137,7 +136,6 @@ Write a function named getHouses that returns a new array containing the names o
 ------------------------------------------------------------------------------------------------ */
 
 const getHouses = (arr) => {
- 
   let houses = [];
   // Solution code here...
   arr.forEach(element => {
@@ -145,7 +143,6 @@ const getHouses = (arr) => {
   });
 
   return houses;
-  
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -162,6 +159,15 @@ hasChildrenValues(characters, 'Sansa') will return false
 
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
+  let flag = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (Object.values(arr[i]).includes(character)) {
+      // console.log(true);
+      flag = 1;
+      break;
+    }
+  }
+  return flag;
 
 };
 
