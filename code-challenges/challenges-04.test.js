@@ -3,26 +3,32 @@
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
-Write a function called addTwo that takes in an array and adds two to every value using a for loop. Place the 
-new value in a new array. Return the new array. 
+Write a function called addTwo that takes in an array
+ and adds two to every value using a for loop.
+  Place the new value in a new array. Return the new array. 
 ------------------------------------------------------------------------------------------------ */
 
 const addTwo = (arr) => {
   // Solution code here...
+  let newArray =[];
+  arr.forEach( element => {
+    newArray.push(element +2);
+  });
+  return newArray;
+
 }
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
-Write a function named containsW that takes in a string. This function should use a regular expression pattern
- to return true if the string contains the letter 'w' in lower case or false if it does not. 
+Write a function named containsW that takes in a string. This function should use a regular expression pattern to return true if the string contains the letter 'w' in lower case or false if it does not. 
 
 ------------------------------------------------------------------------------------------------ */
 
 const containsW = (str) => {
-  // Solution code here...
-  let regex1 = /w/g;
-  return (regex1.test(str))
+  // Solution code here..
+  let regex = /[w]/;
+  return regex.test(str);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -39,40 +45,43 @@ For example:
 
 const isNum = (input) => {
   // Solution code here...
-
-  let regex2 =/[1-9]/g;
-  return (regex2.test(input));
+  let regex = /[0-9]/;
+  return regex.test(input)
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
-Write a function named containsWorld that takes in a string or number of any length. This function should 
-use a regular expression pattern to return true if the input contains the word 'world' all in lower-case letters,
- and false if the input does not.
+Write a function named containsWorld that takes in a string or number of any length. This function should use a regular expression pattern to return true if the input contains the word 'world' all in lower-case letters, and false if the input does not.
 
 ------------------------------------------------------------------------------------------------ */
 
 const containsWorld = (input) => {
   // Solution code here...
-  let regex3=/world/g;
-  return (regex1.test(input));
+  let regex = /world/g;
+  return regex.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
-Write a function named isCapitalized that takes in a string. This function should use a regular expression pattern to match all words that begin with a capital letter. It should only match words, not punctuation.
+Write a function named isCapitalized that takes in a string. 
+This function should use a regular expression pattern to match 
+all words that begin with a capital letter. It should only match words,
+ not punctuation.
 
 Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
   // Solution code here...
-  let regex4 = /[A-Z](\w)*/g;
-  if(str.match(regex4)){
-   return str.match(regex4);
-  } else return [] ;
+  let regex = str.match(/[A-Z]\w{1,}/g);
+
+  if (regex !== null) {
+    return regex;
+  } else {
+    return [];
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -82,14 +91,19 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  // Solution code here...
-  let arr2= [];
-  let regex6 = /^[A-J](\w)*/;
-  arr.forEach(element => {
-   if(regex6.test(element)){
-    arr2.push(element);   }
-  });
- return arr2;
+ // Solution code here...
+ let newArr = [];
+ let regEx = /^[A-J]/;
+
+ arr.forEach( element => {
+
+   if (regEx.test(element) === true){
+     newArr.push(element);
+   }
+
+ });
+
+ return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
