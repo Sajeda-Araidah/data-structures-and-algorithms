@@ -56,6 +56,8 @@ let characters = [
 
 const sortByChildren = (charArray) => {
   // Solution code here...
+
+
   charArray.sort((a,b) => {
     if (a.children.length < b.children.length){
       return -1;
@@ -80,8 +82,10 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
 
 const getCourseKeys = (obj) => {
   // Solution code here...
+<
   let properties = Object.keys(obj);
 return properties;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -94,9 +98,12 @@ Write a function named checkValues that takes in an object and a value and retur
 
 const checkValues = (obj, value) => {
   // Solution code here...
+
+
   let objValue = Object.values(obj);
 
 return objValue.includes(value) ? true : false ;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -120,11 +127,14 @@ HR has asked you to change the data to make it easier to print so that it looks 
 
 const updateNumbers = (obj) => {
   // Solution code here...
+
+
   let updateNumbersArr = [];
   for ( let i=0; i< Object.keys(obj).length; i++){
   updateNumbersArr.push(Object.keys(obj)[i] + ': ' + Object.values(obj)[i]);
 } 
 return updateNumbersArr;
+
 };
 
 
@@ -138,11 +148,12 @@ Write a function named getHouses that returns a new array containing the names o
 const getHouses = (arr) => {
   let houses = [];
   // Solution code here...
+
   arr.forEach(element => {
     houses.push(element.house);
   });
 
-  return houses;
+ return houses;
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -159,7 +170,8 @@ hasChildrenValues(characters, 'Sansa') will return false
 
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
-  let flag = 0;
+
+ let flag = 0;
   for (let i = 0; i < arr.length; i++) {
     if (Object.values(arr[i]).includes(character)) {
       // console.log(true);
@@ -168,6 +180,7 @@ const hasChildrenValues = (arr, character) => {
     }
   }
   return flag;
+
 
 };
 
