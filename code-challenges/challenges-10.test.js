@@ -3,8 +3,7 @@
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
-Write a function named getNames that, given an array of people objects, uses map to return an array of names 
-reversed.
+Write a function named getNames that, given an array of people objects, uses map to return an array of names reversed.
 
 For example: 
 [
@@ -25,6 +24,7 @@ Returns: ['dyoll', 'eimaj'];
 
 const getNames = (arr) => {
   // Solution code here...
+   return arr.map(item => item.name.split('').reverse().join(''));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -39,10 +39,10 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 
 const count = (target, input) => {
   // Solution code here...
-  let total = input.reduce((accom, value) => {
-    return accom += value.reduce((acc, x) => (x == target) ? acc += 1 : acc, 0);
+  return input
+  .reduce((acc, val) => {
+    return acc + val.reduce((acc, val) => (val === target) ? acc += 1 : acc, 0);
   }, 0);
-  return total;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -57,10 +57,11 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 
 const totalSum = (input) => {
   // Solution code here...
-  let total = input.reduce((accom, value) => {
-    return accom += value.reduce((acc, x) => { return acc + x }, 0);
+  return input
+  .reduce((acc, val) => {
+    return acc + val
+      .reduce((acc, val) => acc += val, 0);
   }, 0);
-  return total;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -77,11 +78,11 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 
 const divisibleByFiveTwoToThePower = (input) => {
   // Solution code here...
-  let Newarray = input.map(value =>
-    value.filter(num =>
-      (num % 5 == 0) && (typeof (num) != "string")).map(newValue => Math.pow(2, newValue)));
-  return Newarray;
-
+  return input
+  .map(element => element
+    .filter(value => value % 5 === 0 && Number(value) === value)
+    .map(value => Math
+      .pow(2, value)));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -148,9 +149,9 @@ let starWarsData = [{
 
 let findMaleAndFemale = (data) => {
   // Solution code here...
-  let fData = data.filter(obj =>
-    (obj.gender == "female" || obj.gender == "male")).map(value => value.name).join(" and ");
-  return fData
+  return data.filter(element => element.gender === 'male' || element.gender === 'female')
+  .map(element => element.name)
+  .join(' and ');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -161,7 +162,8 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 
 let findShortest = (data) => {
   // Solution code here...
-
+  return data
+  .sort((a, b) => a.height -b.height)[0].name;
 };
 
 /* ------------------------------------------------------------------------------------------------
