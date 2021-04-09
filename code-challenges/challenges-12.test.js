@@ -10,14 +10,7 @@ E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
 const maxInArray = (arr) => {
   // Solution code here...
- 
-   const maxInArray = (arr) => {
-     return arr.reduce((max, value) => {
-      if(value > max){max = value;}
-       return max;
-     });
-  return arr.reduce((acc, value) => Math.max(acc,value), 0);
-
+  return arr.reduce((acc, val) => acc > val ? acc : val, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -36,11 +29,11 @@ return: 23
 ------------------------------------------------------------------------------------------------ */
 const findMax = (matrix) => {
   // Solution code here...
-  return matrix.reduce((acc, value1) => {
-    return Math.max(acc, (value1.reduce((acc2, value2) => {
-      return Math.max(acc2, value2);
-    }, null)));
-  }, null);
+  let arr =[];
+  matrix.forEach(element => {
+    return arr.push(maxInArray(element));
+  });
+  return maxInArray(arr);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -59,11 +52,7 @@ return: 35
 ------------------------------------------------------------------------------------------------ */
 const totalSum = (matrix) => {
   // Solution code here...
-  return matrix.reduce((acc, curr) => {
-    return acc + curr.reduce((acc2, curr2) => {
-      return acc2 + curr2;
-    }, 0);
-  }, 0);
+  return matrix.flat(1).reduce((acc, val) => acc +val, 0);
 };
 
 
@@ -90,8 +79,11 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
+ 
   // Solution code here...
-  return stores.reduce((acc, value) => acc.map((val, Index) => val + value[Index]));
+  return stores[0].map((elem, index) => {
+    return stores.reduce((acc, val) => acc += val[index], 0);
+  });
 
 };
 
@@ -107,10 +99,12 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 
 const salesData = (hours, data) => {
   // Solution code here...
-  return data.reduce((acc, curr, i) => {
-    acc.push({sales: `${curr} cookies`, time: hours[i]});
-    return acc;
-  }, []);
+  let esultArray=[];
+  data.forEach((element,idx) => {
+    esultArray.push({'sales':`${element} cookies`, 'time':`${hours[idx]}`});
+  });
+  return esultArray;
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -136,6 +130,7 @@ const errands = [
 
 const howManyTreats = (arr) => {
   // Solution code here...
+  return arr[2].items[1].quantity;
 };
 
 /* ------------------------------------------------------------------------------------------------
