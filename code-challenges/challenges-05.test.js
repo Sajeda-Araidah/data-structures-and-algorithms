@@ -45,7 +45,7 @@ Write a function named removeThree that takes an index and an array. The functio
 
 const removeThree = (idx, arr) => {
   // Solution code here...
-  let word = arr.slice(idx,3);
+ arr.splice(idx,3);
    return arr ;
 
 };
@@ -60,7 +60,7 @@ Write a function named joinArray that takes an array and joins all of the elemen
 const joinArray = (arr) => {
   // Solution code here...
    let joinstr = arr.join(' ');
-   return arr ;
+   return joinstr ;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -148,7 +148,14 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+  recipe.ingredients.forEach(item => {
+    let newEl = item.slice(item.indexOf(' ') +1);
+    result.push(newEl);
+  });
+
+  result.forEach((item, i) => {
+    result[i] = item.slice(item.indexOf(' ') + 1);
+  });
   return result;
 };
 
